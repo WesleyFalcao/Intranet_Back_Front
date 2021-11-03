@@ -12,7 +12,7 @@ export class RamalRepository {
         private readonly apiService: ApiGenericService,
     ) { }
 
-    async Get_Ramais(params: PaginatedSearchParam=null) {
+    async Get_Ramais(params: PaginatedSearchParam) {
         try {
             
             const response = await this.httpService.get(process.env.BASE_API_INTRANET + `v1/Ramais`,{...this.options, params }).toPromise()

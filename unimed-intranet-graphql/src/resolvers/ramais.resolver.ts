@@ -5,6 +5,7 @@ import { JwtAuthGuard } from "src/guards/jwt-auth.guard";
 import { Fila, RespostaFilas } from "src/models/filas/fila.model";
 import { PaginatedSearchParam } from "src/models/general/pagianated.model";
 import { Ramal } from "src/models/ramais/ramal.model";
+import { RamalParams } from "src/models/ramais/ramal.params";
 import { RamalService } from "src/services/ramais.service";
 
 //@UseGuards(JwtAuthGuard)
@@ -14,8 +15,8 @@ export class RamalResolver {
     constructor(private ramalService: RamalService) { }
 
     @Query(returns => [Ramal])
-    async Ramal(@Args('objParam') objParam: PaginatedSearchParam)
+    async Ramal(@Args('objParam') objParam: RamalParams)
     {
-        return this.ramalService.Get_Ramais();
+        return this.ramalService.Get_Ramais(objParam);
     }
 }
